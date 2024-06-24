@@ -40,6 +40,7 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
       --prefix=${OPENSSL_PREFIX_DIR}
       --openssldir=${OPENSSL_PREFIX_DIR}
       no-weak-ssl-ciphers
+      no-shared
 
   BUILD_COMMAND
     make -j${NCores}

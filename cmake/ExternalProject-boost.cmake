@@ -11,9 +11,9 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} BOOST_BUILD_TYPE)
 
 # boost options
 set(BOOST_PREFIX_DIR ${SPECTRE_DEPENDENCIES_INSTALL_DIR}/${DEPENDENCY_NAME})
-set(Boost_USE_STATIC_LIBS    OFF)
-set(Boost_USE_MULTITHREADED  OFF)
-set(Boost_USE_STATIC_RUNTIME OFF)
+set(Boost_USE_STATIC_LIBS    ON)
+set(Boost_USE_MULTITHREADED  ON)
+set(Boost_USE_STATIC_RUNTIME ON)
 
 set(BOOST_CONFIGURE_COMMAND)
 set(BOOST_BUILD_COMMAND)
@@ -48,17 +48,19 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   BUILD_COMMAND
     ${BOOST_BUILD_COMMAND}
       --prefix=${BOOST_PREFIX_DIR}
-      --build-type=complete
-      --layout=tagged
+      # --build-type=complete
+      --layout=system
       variant=${BOOST_BUILD_TYPE}
+      link=static
     stage
 
   INSTALL_COMMAND
     ${BOOST_BUILD_COMMAND}
       --prefix=${BOOST_PREFIX_DIR}
-      --build-type=complete
-      --layout=tagged
+      # --build-type=complete
+      --layout=system
       variant=${BOOST_BUILD_TYPE}
+      link=static
     install
 )
 
