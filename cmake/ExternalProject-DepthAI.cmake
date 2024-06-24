@@ -37,5 +37,6 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
 
 set(DEPTHAI_INCLUDE_DIR ${DEPTHAI_PREFIX_DIR}/include)
 set(DEPTHAI_LIB_DIR ${DEPTHAI_PREFIX_DIR}/lib)
+set(DEPTHAI_DIR ${DEPTHAI_PREFIX_DIR}/lib/cmake/depthai)
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME} - DONE")
