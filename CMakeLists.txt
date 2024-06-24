@@ -15,7 +15,7 @@ set(SPECTRE_DEPENDENCIES_INSTALL_DIR)
 if (WIN32)
   # cmake is not detecting environment variables on windows
   # set(SPECTRE_DEPENDENCIES_INSTALL_DIR "$ENV{USERPROFILE}\\spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
-  set(SPECTRE_DEPENDENCIES_INSTALL_DIR "c:\\spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
+  set(SPECTRE_DEPENDENCIES_INSTALL_DIR "C:\\spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
 else()
   set(SPECTRE_DEPENDENCIES_INSTALL_DIR "$ENV{HOME}/spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
 endif()
