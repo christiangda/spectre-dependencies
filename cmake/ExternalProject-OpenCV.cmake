@@ -7,7 +7,7 @@ message("Configuring External Dependency: ${DEPENDENCY_NAME}")
 set(OPENCV_GIT_URL "https://github.com/opencv/opencv.git")
 set(OPENCV_GIT_TAG "${SPECTRE_OPENCV_VERSION}")
 
-set(OPENCV_PREFIX_DIR ${SPECTRE_INSTALL_DIR}/${DEPENDENCY_NAME})
+set(OPENCV_PREFIX_DIR ${SPECTRE_DEPENDENCIES_INSTALL_DIR}/${DEPENDENCY_NAME})
 
 ExternalProject_Add( ${DEPENDENCY_NAME}
   PREFIX         ${OPENCV_PREFIX_DIR}
@@ -51,5 +51,7 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
 
 # set(OPENCV_INCLUDE_DIRS ${OPENCV_PREFIX_DIR}/include/opencv4)
 set(OpenCV_DIR ${OPENCV_PREFIX_DIR}/lib/cmake/opencv4)
+
+set(SPECTRE_DEPENDENCY_OPENCV_INSTALL_DIR ${OPENCV_PREFIX_DIR} CACHE PATH "OpenCV install directory")
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME} - DONE")

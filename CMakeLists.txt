@@ -12,10 +12,10 @@ project(spectre-dependencies
 )
 
 # set the default install directory for the dependencies
-set(SPECTRE_INSTALL_DIR "$ENV{HOME}/spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
+set(SPECTRE_DEPENDENCIES_INSTALL_DIR "$ENV{HOME}/spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
 
 # create directory if this does not exist
-file(MAKE_DIRECTORY ${SPECTRE_INSTALL_DIR})
+file(MAKE_DIRECTORY ${SPECTRE_DEPENDENCIES_INSTALL_DIR})
 
 # set the version of the dependencies
 set(SPECTRE_BOOST_VERSION 1.85.0 CACHE STRING "The version of the boost library to install")
@@ -30,4 +30,11 @@ include(cmake/ExternalProject-opencv.cmake)
 include(cmake/ExternalProject-depthai.cmake)
 
 # set the search path for the dependencies
-set(CMAKE_PREFIX_PATH ${SPECTRE_INSTALL_DIR})
+set(CMAKE_PREFIX_PATH ${SPECTRE_DEPENDENCIES_INSTALL_DIR})
+
+# set the environment variables for the dependencies
+# these are filled by the cmake files that install the dependencies
+set(SPECTRE_DEPENDENCY_BOOST_INSTALL_DIR)
+set(SPECTRE_DEPENDENCY_DEPTHAI_INSTALL_DIR)
+set(SPECTRE_DEPENDENCY_OPENSSL_INSTALL_DIR)
+set(SPECTRE_DEPENDENCY_OPENCV_INSTALL_DIR)

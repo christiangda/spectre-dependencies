@@ -7,7 +7,7 @@ message("Configuring External Dependency: ${DEPENDENCY_NAME}")
 set(DEPTHAI_GIT_URL "https://github.com/luxonis/depthai-core.git")
 set(DEPTHAI_GIT_TAG "v${SPECTRE_DEPTHAI_VERSION}")
 
-set(DEPTHAI_PREFIX_DIR ${SPECTRE_INSTALL_DIR}/${DEPENDENCY_NAME})
+set(DEPTHAI_PREFIX_DIR ${SPECTRE_DEPENDENCIES_INSTALL_DIR}/${DEPENDENCY_NAME})
 
 ExternalProject_Add( ${DEPENDENCY_NAME}
   PREFIX         ${DEPTHAI_PREFIX_DIR}
@@ -34,5 +34,7 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
     -D DEPTHAI_BUILD_EXAMPLES=OFF
     -D OpenCV_DIR=${OpenCV_DIR}
 )
+
+set(SPECTRE_DEPENDENCY_DEPTHAI_INSTALL_DIR ${DEPTHAI_PREFIX_DIR} CACHE INTERNAL "DepthAI Install Directory")
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME} - DONE")
