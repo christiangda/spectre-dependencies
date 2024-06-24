@@ -7,24 +7,12 @@ message("Configuring External Dependency: ${DEPENDENCY_NAME}")
 set(BOOST_GIT_URL "https://github.com/boostorg/boost.git")
 set(BOOST_GIT_TAG "boost-${SPECTRE_BOOST_VERSION}")
 
-# set(BOOST_INCLUDE_LIBRARIES
-#     asio
-#     beast
-#     core
-#     system
-#     program_options
-#     filesystem
-#     log
-#     atomic
-#     headers
-#     regex
-# )
 string(TOLOWER ${CMAKE_BUILD_TYPE} BOOST_BUILD_TYPE)
 
 # boost options
 set(BOOST_PREFIX_DIR ${SPECTRE_INSTALL_DIR}/${DEPENDENCY_NAME})
-set(Boost_USE_STATIC_LIBS    ON)
-set(Boost_USE_MULTITHREADED  ON)
+set(Boost_USE_STATIC_LIBS    OFF)
+set(Boost_USE_MULTITHREADED  OFF)
 set(Boost_USE_STATIC_RUNTIME OFF)
 
 set(BOOST_CONFIGURE_COMMAND)
@@ -36,9 +24,6 @@ else()
     set(BOOST_CONFIGURE_COMMAND "${BOOST_PREFIX_DIR}/src/${DEPENDENCY_NAME}/bootstrap.sh")
     set(BOOST_BUILD_COMMAND "${BOOST_PREFIX_DIR}/src/${DEPENDENCY_NAME}/b2")
 endif()
-
-# Convert list to string comma separated
-# list(JOIN BOOST_INCLUDE_LIBRARIES "," BOOST_INCLUDE_LIBRARIES_STRING_LIST)
 
 ExternalProject_Add( ${DEPENDENCY_NAME}
   PREFIX          ${BOOST_PREFIX_DIR}
@@ -59,7 +44,6 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   CONFIGURE_COMMAND
     ${BOOST_CONFIGURE_COMMAND}
       --prefix=${BOOST_PREFIX_DIR}
-      # --with-libraries=${BOOST_INCLUDE_LIBRARIES_STRING_LIST}
 
   BUILD_COMMAND
     ${BOOST_BUILD_COMMAND}
@@ -67,8 +51,6 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
       --build-type=complete
       --layout=tagged
       variant=${BOOST_BUILD_TYPE}
-      link=static
-      runtime-link=static
     stage
 
   INSTALL_COMMAND
@@ -77,13 +59,7 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
       --build-type=complete
       --layout=tagged
       variant=${BOOST_BUILD_TYPE}
-      link=static
-      runtime-link=static
     install
 )
-
-# # Set the target dependencies which the rest of the project can use
-# set(BOOST_INCLUDE_DIRS ${BOOST_PREFIX_DIR}/include CACHE INTERNAL "${DEPENDENCY_NAME}: Include Directories" FORCE)
-# set(BOOST_LIBRARIES_DIRS ${BOOST_PREFIX_DIR}/lib CACHE INTERNAL "${DEPENDENCY_NAME}: Library Directories" FORCE)
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME} - DONE")

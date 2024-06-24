@@ -35,34 +35,4 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
     -D OpenCV_DIR=${OpenCV_DIR}
 )
 
-# #  depthai::core
-# add_library(depthai::core STATIC IMPORTED GLOBAL)
-# set_target_properties(depthai::core PROPERTIES
-#       IMPORTED_LOCATION ${DEPTHAI_PREFIX_DIR}/lib/libdepthai-core.${DEPTHAI_LIBRARY_SUFFIX}
-#       INTERFACE_INCLUDE_DIRECTORIES ${DEPTHAI_PREFIX_DIR}/include
-#       INCLUDE_DIRECTORIES ${DEPTHAI_PREFIX_DIR}/include
-# )
-
-# add_dependencies(depthai::core ${DEPENDENCY_NAME})
-
-# #  depthai::opencv
-# add_library(depthai::opencv STATIC IMPORTED GLOBAL)
-# set_target_properties(depthai::opencv PROPERTIES
-#       IMPORTED_LOCATION ${DEPTHAI_PREFIX_DIR}/lib/libdepthai-opencv.${DEPTHAI_LIBRARY_SUFFIX}
-#       INTERFACE_INCLUDE_DIRECTORIES ${DEPTHAI_PREFIX_DIR}/include
-#       INCLUDE_DIRECTORIES ${DEPTHAI_PREFIX_DIR}/include
-# )
-
-# add_dependencies(depthai::opencv ${DEPENDENCY_NAME})
-
-# # depthai::resources
-# add_library(depthai::resources STATIC IMPORTED GLOBAL)
-# set_target_properties(depthai::resources PROPERTIES
-#       IMPORTED_LOCATION ${DEPTHAI_PREFIX_DIR}/lib/libdepthai-resources.${DEPTHAI_LIBRARY_SUFFIX}
-#       INTERFACE_INCLUDE_DIRECTORIES ${DEPTHAI_PREFIX_DIR}/include
-#       INCLUDE_DIRECTORIES ${DEPTHAI_PREFIX_DIR}/include
-# )
-
-# add_dependencies(depthai::resources ${DEPENDENCY_NAME})
-
 message("Configuring External Dependency: ${DEPENDENCY_NAME} - DONE")
