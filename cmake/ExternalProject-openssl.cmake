@@ -12,12 +12,13 @@ message(STATUS "Build will use ${NCores} cores")
 set(OPENSSL_GIT_URL "https://github.com/openssl/openssl.git")
 set(OPENSSL_GIT_TAG "openssl-${SPECTRE_OPENSSL_VERSION}")
 
-set(OPENSSL_PREFIX_DIR ${SPECTRE_DEPENDENCIES_INSTALL_DIR}/${DEPENDENCY_NAME})
-
+set(OPENSSL_PREFIX_DIR)
 set(OPENSSL_CONFIGURE_COMMAND)
 if (WIN32)
+  set(OPENSSL_PREFIX_DIR ${SPECTRE_DEPENDENCIES_INSTALL_DIR}\\${DEPENDENCY_NAME})
   set(OPENSSL_CONFIGURE_COMMAND "${OPENSSL_PREFIX_DIR}\\src\\${DEPENDENCY_NAME}\\Configure")
 else()
+  set(OPENSSL_PREFIX_DIR ${SPECTRE_DEPENDENCIES_INSTALL_DIR}/${DEPENDENCY_NAME})
   set(OPENSSL_CONFIGURE_COMMAND "${OPENSSL_PREFIX_DIR}/src/${DEPENDENCY_NAME}/Configure")
 endif()
 
@@ -35,18 +36,11 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   UPDATE_COMMAND ""
   PATCH_COMMAND ""
 
-  CONFIGURE_COMMAND
-    ${OPENSSL_CONFIGURE_COMMAND}
-      --prefix=${OPENSSL_PREFIX_DIR}
-      --openssldir=${OPENSSL_PREFIX_DIR}
-      no-weak-ssl-ciphers
-      no-shared
+  CONFIGURE_COMMAND ${OPENSSL_CONFIGURE_COMMAND} --prefix=${OPENSSL_PREFIX_DIR} --openssldir=${OPENSSL_PREFIX_DIR} no-weak-ssl-ciphers no-shared
 
-  BUILD_COMMAND
-    make -j${NCores}
+  BUILD_COMMAND make -j${NCores}
 
-  INSTALL_COMMAND
-    make install_sw
+  INSTALL_COMMAND make install_sw
 
   INSTALL_DIR ${OPENSSL_PREFIX_DIR}
 )
