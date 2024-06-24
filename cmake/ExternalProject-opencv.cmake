@@ -50,7 +50,7 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
     -D WITH_QUIRC=ON
     -D BUILD_ZLIB=ON
     -D BUILD_ITT=ON
-    -D WITH_IPP=ON
+    -D WITH_IPP=OFF
     -D BUILD_IPP_IW=ON
 )
 
