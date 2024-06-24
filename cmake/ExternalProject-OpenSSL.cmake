@@ -96,4 +96,7 @@ set_target_properties(OpenSSL::Crypto PROPERTIES
       INTERFACE_INCLUDE_DIRECTORIES ${OPENSSL_PREFIX_DIR}/include
 )
 
+set(OPENSSL_INCLUDE_DIR ${OPENSSL_PREFIX_DIR}/include)
+set(OPENSSL_INCLUDE_DIRS ${OPENSSL_INCLUDE_DIR})
+
 message(STATUS "Configuring External Dependency: ${DEPENDENCY_NAME} - DONE")
