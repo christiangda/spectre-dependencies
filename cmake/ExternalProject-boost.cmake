@@ -12,7 +12,7 @@ string(TOLOWER ${CMAKE_BUILD_TYPE} BOOST_BUILD_TYPE)
 # boost options
 set(Boost_USE_STATIC_LIBS    ON)
 set(Boost_USE_MULTITHREADED  OFF)
-set(Boost_USE_STATIC_RUNTIME OFF)
+set(Boost_USE_STATIC_RUNTIME ON)
 
 set(BOOST_PREFIX_DIR)
 set(BOOST_CONFIGURE_COMMAND)
@@ -49,6 +49,8 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   CONFIGURE_COMMAND
     ${BOOST_CONFIGURE_COMMAND}
       --prefix=${BOOST_PREFIX_DIR}
+      --without-python
+      --with-toolset=clang
 
   BUILD_COMMAND
     ${BOOST_BUILD_COMMAND}
@@ -56,8 +58,11 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
       --layout=system
       --without-mpi
       --without-graph_parallel
+      --without-python
+      --buildid=clang
       variant=${BOOST_BUILD_TYPE}
       link=static
+      toolset=clang
     stage
 
   INSTALL_COMMAND
