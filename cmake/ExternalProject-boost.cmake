@@ -49,7 +49,6 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   CONFIGURE_COMMAND
     ${BOOST_CONFIGURE_COMMAND}
       --prefix=${BOOST_PREFIX_DIR}
-      --without-python
       --with-toolset=clang
 
   BUILD_COMMAND
