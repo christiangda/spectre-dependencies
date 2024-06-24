@@ -7,7 +7,7 @@ ProcessorCount(NCores)
 set(DEPENDENCY_NAME "openssl")
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME}")
-message("Build will use ${NCores} cores")
+message(STATUS "Build will use ${NCores} cores")
 
 set(OPENSSL_GIT_URL "https://github.com/openssl/openssl.git")
 set(OPENSSL_GIT_TAG "openssl-${SPECTRE_OPENSSL_VERSION}")
@@ -39,7 +39,6 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
     ${OPENSSL_CONFIGURE_COMMAND}
       --prefix=${OPENSSL_PREFIX_DIR}
       --openssldir=${OPENSSL_PREFIX_DIR}
-      no-shared
       no-weak-ssl-ciphers
 
   BUILD_COMMAND
