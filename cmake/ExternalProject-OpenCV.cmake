@@ -1,6 +1,6 @@
 include(ExternalProject)
 
-set(DEPENDENCY_NAME "OpenCV")
+set(DEPENDENCY_NAME "opencv")
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME}")
 

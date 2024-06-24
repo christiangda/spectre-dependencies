@@ -24,10 +24,10 @@ set(SPECTRE_OPENCV_VERSION 4.9.0 CACHE STRING "The version of the opencv library
 set(SPECTRE_DEPTHAI_VERSION 2.26.0 CACHE STRING "The version of the depthai library to install")
 
 # include the cmake file to install the dependencies
-include(cmake/ExternalProject-Boost.cmake)
-include(cmake/ExternalProject-OpenSSL.cmake)
-include(cmake/ExternalProject-OpenCV.cmake)
-include(cmake/ExternalProject-DepthAI.cmake)
+include(cmake/ExternalProject-boost.cmake)
+include(cmake/ExternalProject-openssl.cmake)
+include(cmake/ExternalProject-opencv.cmake)
+include(cmake/ExternalProject-depthai.cmake)
 
 # set the search path for the dependencies
 set(CMAKE_PREFIX_PATH ${SPECTRE_INSTALL_DIR})

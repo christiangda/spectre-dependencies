@@ -1,6 +1,6 @@
 include(ExternalProject)
 
-set(DEPENDENCY_NAME "DepthAI")
+set(DEPENDENCY_NAME "depthai")
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME}")
 
@@ -13,7 +13,7 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   PREFIX         ${DEPTHAI_PREFIX_DIR}
 
   # This depend on OpenCV ExternalProject target
-  DEPENDS       OpenCV
+  DEPENDS       opencv
 
   GIT_REPOSITORY ${DEPTHAI_GIT_URL}
   GIT_TAG        ${DEPTHAI_GIT_TAG}
@@ -34,5 +34,8 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
     -D DEPTHAI_BUILD_EXAMPLES=OFF
     -D OpenCV_DIR=${OpenCV_DIR}
 )
+
+set(DEPTHAI_INCLUDE_DIR ${DEPTHAI_PREFIX_DIR}/include)
+set(DEPTHAI_LIB_DIR ${DEPTHAI_PREFIX_DIR}/lib)
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME} - DONE")

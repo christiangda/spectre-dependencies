@@ -4,7 +4,7 @@ include(ProcessorCount)
 # Get the number of cores
 ProcessorCount(NCores)
 
-set(DEPENDENCY_NAME "OpenSSL")
+set(DEPENDENCY_NAME "openssl")
 
 message(STATUS "Configuring External Dependency: ${DEPENDENCY_NAME}")
 message(STATUS "Build will use ${NCores} cores")

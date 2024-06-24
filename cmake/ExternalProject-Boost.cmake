@@ -1,6 +1,6 @@
 include(ExternalProject)
 
-set(DEPENDENCY_NAME "Boost")
+set(DEPENDENCY_NAME "boost")
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME}")
 
@@ -20,7 +20,6 @@ set(BOOST_GIT_TAG "boost-${SPECTRE_BOOST_VERSION}")
 #     regex
 # )
 string(TOLOWER ${CMAKE_BUILD_TYPE} BOOST_BUILD_TYPE)
-
 
 # boost options
 set(BOOST_PREFIX_DIR ${SPECTRE_INSTALL_DIR}/${DEPENDENCY_NAME})
@@ -65,8 +64,8 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   BUILD_COMMAND
     ${BOOST_BUILD_COMMAND}
       --prefix=${BOOST_PREFIX_DIR}
-      --build-type=minimal
-      --layout=system
+      --build-type=complete
+      --layout=tagged
       variant=${BOOST_BUILD_TYPE}
       link=static
       runtime-link=static
@@ -75,8 +74,8 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   INSTALL_COMMAND
     ${BOOST_BUILD_COMMAND}
       --prefix=${BOOST_PREFIX_DIR}
-      --build-type=minimal
-      --layout=system
+      --build-type=complete
+      --layout=tagged
       variant=${BOOST_BUILD_TYPE}
       link=static
       runtime-link=static
