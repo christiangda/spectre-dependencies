@@ -20,7 +20,7 @@ else()
   set(SPECTRE_DEPENDENCIES_INSTALL_DIR "$ENV{HOME}/spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
 endif()
 
-message("The dependencies will be installed in ${SPECTRE_DEPENDENCIES_INSTALL_DIR}")
+message("The dependencies will be installed in: ${SPECTRE_DEPENDENCIES_INSTALL_DIR}")
 
 # create directory if this does not exist
 file(MAKE_DIRECTORY ${SPECTRE_DEPENDENCIES_INSTALL_DIR})
