@@ -25,6 +25,9 @@ else()
     set(BOOST_BUILD_COMMAND "${BOOST_PREFIX_DIR}/src/${DEPENDENCY_NAME}/b2")
 endif()
 
+message("Using Boost configure command: ${BOOST_CONFIGURE_COMMAND}")
+message("Using Boost build command: ${BOOST_BUILD_COMMAND}")
+
 ExternalProject_Add( ${DEPENDENCY_NAME}
   PREFIX          ${BOOST_PREFIX_DIR}
 
@@ -41,27 +44,11 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   UPDATE_COMMAND ""
   PATCH_COMMAND ""
 
-  CONFIGURE_COMMAND
-    ${BOOST_CONFIGURE_COMMAND}
-      --prefix=${BOOST_PREFIX_DIR}
+  CONFIGURE_COMMAND ${BOOST_CONFIGURE_COMMAND} --prefix=${BOOST_PREFIX_DIR}
 
-  BUILD_COMMAND
-    ${BOOST_BUILD_COMMAND}
-      --prefix=${BOOST_PREFIX_DIR}
-      # --build-type=complete
-      --layout=system
-      variant=${BOOST_BUILD_TYPE}
-      link=static
-    stage
+  BUILD_COMMAND ${BOOST_BUILD_COMMAND} --prefix=${BOOST_PREFIX_DIR} --layout=system variant=${BOOST_BUILD_TYPE} link=static stage
 
-  INSTALL_COMMAND
-    ${BOOST_BUILD_COMMAND}
-      --prefix=${BOOST_PREFIX_DIR}
-      # --build-type=complete
-      --layout=system
-      variant=${BOOST_BUILD_TYPE}
-      link=static
-    install
+  INSTALL_COMMAND ${BOOST_BUILD_COMMAND} --prefix=${BOOST_PREFIX_DIR} --layout=system variant=${BOOST_BUILD_TYPE} link=static install
 )
 
 set(SPECTRE_DEPENDENCY_BOOST_INSTALL_DIR ${BOOST_PREFIX_DIR} CACHE INTERNAL "Path to Boost install directory")

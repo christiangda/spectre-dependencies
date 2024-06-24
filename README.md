@@ -38,3 +38,13 @@ rm -rf buid
 cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DSPECTRE_DEPENDENCIES_INSTALL_DIR=<path to install spectre dependencies>
 cmake --build build --parallel <number of cores you want to use>
 ```
+
+### Build and install the dependencies
+
+Windows
+
+```powershell
+.\bootstrap.bat --prefix=C:\spectre-dependencies\boost
+.\b2.exe --prefix=C:\spectre-dependencies\boost --layout=system variant=release link=static stage
+.\b2.exe --prefix=C:\spectre-dependencies\boost --layout=system variant=release link=static install
+```
