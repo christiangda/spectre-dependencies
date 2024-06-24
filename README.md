@@ -25,11 +25,8 @@ sudo apt install -y clang-tidy
 sudo update-alternatives --config c++
 sudo apt autoremove -y
 
-
-sudo update-alternatives \
-  --install /usr/bin/clang++ clang++ /usr/bin/clang++-15 100 \
-  --slave /usr/bin/clang clang /usr/bin/clang-15
-
+# set clang-15 as default
+sudo ./ubuntu-clang.sh 15 10
 ```
 
 ```bash
