@@ -24,6 +24,8 @@ endif()
 
 ExternalProject_Add( ${DEPENDENCY_NAME}
   PREFIX         ${OPENSSL_PREFIX_DIR}
+  INSTALL_DIR    ${OPENSSL_PREFIX_DIR}
+
 
   GIT_REPOSITORY ${OPENSSL_GIT_URL}
   GIT_TAG        ${OPENSSL_GIT_TAG}
@@ -36,13 +38,18 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
   UPDATE_COMMAND ""
   PATCH_COMMAND ""
 
-  CONFIGURE_COMMAND ${OPENSSL_CONFIGURE_COMMAND} --prefix=${OPENSSL_PREFIX_DIR} --openssldir=${OPENSSL_PREFIX_DIR} no-weak-ssl-ciphers no-shared
+  CONFIGURE_COMMAND
+    ${OPENSSL_CONFIGURE_COMMAND}
+      --prefix=${OPENSSL_PREFIX_DIR}
+      --openssldir=${OPENSSL_PREFIX_DIR}
+      no-weak-ssl-ciphers
+      no-shared
 
-  BUILD_COMMAND make -j${NCores}
+  BUILD_COMMAND
+    make -j${NCores}
 
-  INSTALL_COMMAND make install_sw
-
-  INSTALL_DIR ${OPENSSL_PREFIX_DIR}
+  INSTALL_COMMAND
+    make install_sw
 )
 
 set(SPECTRE_DEPENDENCY_OPENSSL_INSTALL_DIR ${OPENSSL_PREFIX_DIR} CACHE INTERNAL "Path to installed OpenSSL")
