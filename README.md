@@ -1,8 +1,19 @@
 # spectre-dependencies
 
-This is the project used to install the spectre project dependencies in the OS
+This is the project used to build and install the dependencies for the Spectre project.
 
-## Installation
+The dependencies are:
+
+- Boost 1.85.0
+- OpenSSL 3.3.1
+- OpenCV 4.9.0
+- depthai-core 2.26.0
+
+NOTE: This project is designed to be compiled on Linux, MacOS and Windows using clang and cmake.
+
+## Build and install the dependencies
+
+### Linux
 
 Update the system
 
@@ -34,22 +45,25 @@ sudo update-alternatives --config cc
 git clone
 cd spectre-dependencies
 
-# on raspbian only
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
-
 # default SPECTRE_DEPENDENCIES_INSTALL_DIR=$HOME/spectre-dependencies
 rm -rf buid
-cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D CMAKE_TOOLCHAIN_PREFIX=llvm- -D SPECTRE_DEPENDENCIES_INSTALL_DIR=<path to install spectre dependencies>
+cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D SPECTRE_DEPENDENCIES_INSTALL_DIR=<path to install spectre dependencies>
 cmake --build build --parallel <number of cores you want to use>
 ```
 
-### Build and install the dependencies
-
-Windows
+### Windows
 
 ```powershell
 .\bootstrap.bat --prefix=C:\spectre-dependencies\boost
 .\b2.exe --prefix=C:\spectre-dependencies\boost --layout=system variant=release link=static stage
 .\b2.exe --prefix=C:\spectre-dependencies\boost --layout=system variant=release link=static install
+```
+
+### MacOS
+
+```bash
+brew install cmake
+brew install llvm
+brew install clang-format
+brew install clang-tidy
 ```
