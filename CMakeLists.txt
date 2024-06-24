@@ -13,10 +13,12 @@ project(spectre-dependencies
 # set the default install directory for the dependencies
 set(SPECTRE_DEPENDENCIES_INSTALL_DIR)
 if (WIN32)
-  set(SPECTRE_DEPENDENCIES_INSTALL_DIR "$ENV{USERPROFILE}/spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
+  set(SPECTRE_DEPENDENCIES_INSTALL_DIR "$ENV{USERPROFILE}\\spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
 else()
   set(SPECTRE_DEPENDENCIES_INSTALL_DIR "$ENV{HOME}/spectre-dependencies" CACHE STRING "The directory where the dependencies will be installed")
 endif()
+
+message("The dependencies will be installed in ${SPECTRE_DEPENDENCIES_INSTALL_DIR}")
 
 # create directory if this does not exist
 file(MAKE_DIRECTORY ${SPECTRE_DEPENDENCIES_INSTALL_DIR})
