@@ -28,3 +28,6 @@ include(cmake/ExternalProject-Boost.cmake)
 include(cmake/ExternalProject-OpenSSL.cmake)
 include(cmake/ExternalProject-OpenCV.cmake)
 include(cmake/ExternalProject-DepthAI.cmake)
+
+# set the search path for the dependencies
+set(CMAKE_PREFIX_PATH ${SPECTRE_INSTALL_DIR})
