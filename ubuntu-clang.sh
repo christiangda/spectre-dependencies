@@ -19,7 +19,7 @@ function register_clang_version {
     --slave /usr/bin/llvm-extract llvm-extract /usr/bin/llvm-extract-${version} \
     --slave /usr/bin/llvm-link llvm-link /usr/bin/llvm-link-${version} \
     --slave /usr/bin/llvm-mc llvm-mc /usr/bin/llvm-mc-${version} \
-    --slave /usr/bin/llvm-mcmarkup llvm-mcmarkup /usr/bin/llvm-mcmarkup-${version} \
+    --slave /usr/bin/llvm-mca llvm-mca /usr/bin/llvm-mca-${version} \
     --slave /usr/bin/llvm-nm llvm-nm /usr/bin/llvm-nm-${version} \
     --slave /usr/bin/llvm-objdump llvm-objdump /usr/bin/llvm-objdump-${version} \
     --slave /usr/bin/llvm-ranlib llvm-ranlib /usr/bin/llvm-ranlib-${version} \
