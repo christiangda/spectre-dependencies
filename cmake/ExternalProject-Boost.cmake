@@ -82,8 +82,8 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
     install
 )
 
-# Set the target dependencies which the rest of the project can use
-set(BOOST_INCLUDE_DIRS ${BOOST_PREFIX_DIR}/include CACHE INTERNAL "${DEPENDENCY_NAME}: Include Directories" FORCE)
-set(BOOST_LIBRARIES_DIRS ${BOOST_PREFIX_DIR}/lib CACHE INTERNAL "${DEPENDENCY_NAME}: Library Directories" FORCE)
+# # Set the target dependencies which the rest of the project can use
+# set(BOOST_INCLUDE_DIRS ${BOOST_PREFIX_DIR}/include CACHE INTERNAL "${DEPENDENCY_NAME}: Include Directories" FORCE)
+# set(BOOST_LIBRARIES_DIRS ${BOOST_PREFIX_DIR}/lib CACHE INTERNAL "${DEPENDENCY_NAME}: Library Directories" FORCE)
 
 message("Configuring External Dependency: ${DEPENDENCY_NAME} - DONE")
