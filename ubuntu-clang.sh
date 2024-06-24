@@ -31,8 +31,8 @@ function register_clang_version {
     --slave /usr/bin/llvm-tblgen llvm-tblgen /usr/bin/llvm-tblgen-${version}
 
   update-alternatives \
-    --install /usr/bin/clang++ clang++ /usr/bin/clang++-${version} \
-    --slave /usr/bin/clang clang /usr/bin/clang-${version} ${priority} \
+    --install /usr/bin/clang++ clang++ /usr/bin/clang++-${version} ${priority} \
+    --slave /usr/bin/clang clang /usr/bin/clang-${version} \
     --slave /usr/bin/asan_symbolize asan_symbolize /usr/bin/asan_symbolize-${version} \
     --slave /usr/bin/c-index-test c-index-test /usr/bin/c-index-test-${version} \
     --slave /usr/bin/clang-check clang-check /usr/bin/clang-check-${version} \
