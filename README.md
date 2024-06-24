@@ -27,6 +27,7 @@ sudo apt autoremove -y
 # set clang-15 as default
 sudo ./ubuntu-clang.sh 15 10
 sudo update-alternatives --config c++
+sudo update-alternatives --config cc
 ```
 
 ```bash

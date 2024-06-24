@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.25.1)
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_C_COMPILER "/usr/bin/clang" CACHE INTERNAL "clang compiler" FORCE)
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++" CACHE INTERNAL "clang++ compiler" FORCE)
 
 project(spectre-dependencies
       VERSION 0.0.1
