@@ -7,6 +7,8 @@ message("Configuring External Dependency: ${DEPENDENCY_NAME}")
 set(BOOST_GIT_URL "https://github.com/boostorg/boost.git")
 set(BOOST_GIT_TAG "boost-${SPECTRE_BOOST_VERSION}")
 
+message(STATUS "BOOST_GIT_TAG: ${BOOST_GIT_TAG}")
+
 string(TOLOWER ${CMAKE_BUILD_TYPE} BOOST_BUILD_TYPE)
 
 # boost options

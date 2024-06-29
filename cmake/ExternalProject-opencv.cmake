@@ -7,6 +7,8 @@ message("Configuring External Dependency: ${DEPENDENCY_NAME}")
 set(OPENCV_GIT_URL "https://github.com/opencv/opencv.git")
 set(OPENCV_GIT_TAG "${SPECTRE_OPENCV_VERSION}")
 
+message(STATUS "OPENCV_GIT_TAG: ${OPENCV_GIT_TAG}")
+
 set(OPENCV_PREFIX_DIR)
 if (WIN32)
   set(OPENCV_PREFIX_DIR ${SPECTRE_DEPENDENCIES_INSTALL_DIR}\\${DEPENDENCY_NAME})

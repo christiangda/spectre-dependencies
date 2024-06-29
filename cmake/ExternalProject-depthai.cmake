@@ -7,6 +7,8 @@ message("Configuring External Dependency: ${DEPENDENCY_NAME}")
 set(DEPTHAI_GIT_URL "https://github.com/luxonis/depthai-core.git")
 set(DEPTHAI_GIT_TAG "v${SPECTRE_DEPTHAI_VERSION}")
 
+message(STATUS "DEPTHAI_GIT_TAG: ${DEPTHAI_GIT_TAG}")
+
 set(DEPTHAI_PREFIX_DIR)
 if (WIN32)
   set(DEPTHAI_PREFIX_DIR ${SPECTRE_DEPENDENCIES_INSTALL_DIR}\\${DEPENDENCY_NAME})
