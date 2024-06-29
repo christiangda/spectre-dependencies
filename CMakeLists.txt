@@ -32,12 +32,14 @@ set(SPECTRE_BOOST_VERSION 1.85.0 CACHE STRING "The version of the boost library 
 set(SPECTRE_OPENSSL_VERSION 3.3.1 CACHE STRING "The version of the openssl library to install")
 set(SPECTRE_OPENCV_VERSION 4.9.0 CACHE STRING "The version of the opencv library to install")
 set(SPECTRE_DEPTHAI_VERSION 2.26.0 CACHE STRING "The version of the depthai library to install")
+set(SPECTRE_ASYNC_MQTT5_VERSION master CACHE STRING "The version of the async-mqtt5 library to install")
 
 # include the cmake file to install the dependencies
 include(cmake/ExternalProject-boost.cmake)
 include(cmake/ExternalProject-openssl.cmake)
 include(cmake/ExternalProject-opencv.cmake)
 include(cmake/ExternalProject-depthai.cmake)
+include(cmake/ExternalProject-async-mqtt5.cmake)
 
 # set the search path for the dependencies
 set(CMAKE_PREFIX_PATH ${SPECTRE_DEPENDENCIES_INSTALL_DIR})
@@ -48,3 +50,4 @@ set(SPECTRE_DEPENDENCY_BOOST_INSTALL_DIR)
 set(SPECTRE_DEPENDENCY_DEPTHAI_INSTALL_DIR)
 set(SPECTRE_DEPENDENCY_OPENSSL_INSTALL_DIR)
 set(SPECTRE_DEPENDENCY_OPENCV_INSTALL_DIR)
+set(SPECTRE_DEPENDENCY_ASYNC_MQTT5_INSTALL_DIR)

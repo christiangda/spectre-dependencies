@@ -8,6 +8,7 @@ The dependencies are:
 - OpenSSL 3.3.1
 - OpenCV 4.9.0
 - depthai-core 2.26.0
+- [async-mqtt5](https://github.com/mireo/async-mqtt5)
 
 NOTE: This project is designed to be compiled on Linux, MacOS and Windows using clang and cmake.
 

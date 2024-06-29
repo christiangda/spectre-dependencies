@@ -12,6 +12,8 @@ message(STATUS "Build will use ${NCores} cores")
 set(OPENSSL_GIT_URL "https://github.com/openssl/openssl.git")
 set(OPENSSL_GIT_TAG "openssl-${SPECTRE_OPENSSL_VERSION}")
 
+message(STATUS "OPENSSL_GIT_TAG: ${OPENSSL_GIT_TAG}")
+
 set(OPENSSL_PREFIX_DIR)
 set(OPENSSL_CONFIGURE_COMMAND)
 if (WIN32)
