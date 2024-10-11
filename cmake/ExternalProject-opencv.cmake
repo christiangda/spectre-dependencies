@@ -56,6 +56,7 @@ ExternalProject_Add( ${DEPENDENCY_NAME}
     -D BUILD_IPP_IW=ON
     -D BUILD_opencv_python2=OFF
     -D BUILD_opencv_python3=OFF
+    -D OBSENSOR_USE_ORBBEC_SDK=OFF
 )
 
 # set(OPENCV_INCLUDE_DIRS ${OPENCV_PREFIX_DIR}/include/opencv4)
