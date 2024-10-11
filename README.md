@@ -5,9 +5,9 @@ This is the project used to build and install the dependencies for the Spectre p
 The dependencies are:
 
 - Boost 1.85.0
-- OpenSSL 3.3.1
-- OpenCV 4.9.0
-- depthai-core 2.26.0
+- OpenSSL 3.3.2
+- OpenCV 4.10.0
+- depthai-core 2.28.0
 - [async-mqtt5](https://github.com/mireo/async-mqtt5)
 
 NOTE: This project is designed to be compiled on Linux, MacOS and Windows using clang and cmake.
