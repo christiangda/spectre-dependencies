@@ -4,7 +4,7 @@ This is the project used to build and install the dependencies for the Spectre p
 
 The dependencies are:
 
-- Boost 1.85.0
+- Boost 1.86.0
 - OpenSSL 3.3.2
 - OpenCV 4.10.0
 - depthai-core 2.28.0
@@ -31,7 +31,7 @@ sudo apt-get install build-essential -y
 sudo apt install -y git curl wget
 
 sudo apt-get install cmake
-sudo apt-get install clang-15 llvm-15
+sudo apt-get install clang-16 llvm-16
 sudo apt install -y clang-format
 sudo apt install -y clang-tidy
 sudo apt autoremove -y

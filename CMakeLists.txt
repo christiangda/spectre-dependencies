@@ -28,7 +28,7 @@ message("The dependencies will be installed in: ${SPECTRE_DEPENDENCIES_INSTALL_D
 file(MAKE_DIRECTORY ${SPECTRE_DEPENDENCIES_INSTALL_DIR})
 
 # set the version of the dependencies
-set(SPECTRE_BOOST_VERSION 1.85.0 CACHE STRING "The version of the boost library to install")
+set(SPECTRE_BOOST_VERSION 1.86.0 CACHE STRING "The version of the boost library to install")
 set(SPECTRE_OPENSSL_VERSION 3.3.2 CACHE STRING "The version of the openssl library to install")
 set(SPECTRE_OPENCV_VERSION 4.10.0 CACHE STRING "The version of the opencv library to install")
 set(SPECTRE_DEPTHAI_VERSION 2.28.0 CACHE STRING "The version of the depthai library to install")
