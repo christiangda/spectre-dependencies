@@ -12,7 +12,7 @@ The dependencies are:
 
 NOTE: This project is designed to be compiled on Linux, MacOS and Windows using clang and cmake.
 
-## Build and install the dependencies
+## Install the dependencies
 
 ### Linux
 
@@ -42,16 +42,6 @@ sudo update-alternatives --config c++
 sudo update-alternatives --config cc
 ```
 
-```bash
-git clone
-cd spectre-dependencies
-
-# default SPECTRE_DEPENDENCIES_INSTALL_DIR=$HOME/spectre-dependencies
-rm -rf buid
-cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D SPECTRE_DEPENDENCIES_INSTALL_DIR=<path to install spectre dependencies>
-cmake --build build --parallel <number of cores you want to use>
-```
-
 ### Windows
 
 ```powershell
@@ -67,4 +57,20 @@ brew install cmake
 brew install llvm
 brew install clang-format
 brew install clang-tidy
+```
+
+### Build
+
+```bash
+git clone
+cd spectre-dependencies
+
+# default SPECTRE_DEPENDENCIES_INSTALL_DIR=$HOME/spectre-dependencies
+rm -rf buid
+
+# cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D SPECTRE_DEPENDENCIES_INSTALL_DIR=<path to install spectre dependencies>
+cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D SPECTRE_DEPENDENCIES_INSTALL_DIR=/Users/christian/spectre-dependencies
+
+# cmake --build build --parallel <number of cores you want to use>
+cmake --build build --parallel 10
 ```
